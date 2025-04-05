@@ -1,0 +1,36 @@
+CREATE TABLE product (
+    pro_id INT PRIMARY KEY,
+    pro_name VARCHAR(100),
+    pro_price DECIMAL(10, 2),
+    pro_code VARCHAR(50),
+    company_code VARCHAR(50)
+);
+
+INSERT INTO product (pro_id, pro_name, pro_price, pro_code, company_code) VALUES
+(1, 'Keyboard', 300.00, 'KBD001', 'C001'),
+(2, 'Mouse', 150.00, 'MSE001', 'C001'),
+(3, 'Monitor', 5000.00, 'MON001', 'C002'),
+(4, 'Speaker', 800.00, 'SPK001', 'C003'),
+(5, 'Motherboard', 4500.00, 'MB001', 'C002'),
+(6, 'Webcam', 200.00, 'WBC001', 'C003');
+
+SELECT pro_name, pro_price
+FROM product
+WHERE pro_price >= 250
+ORDER BY pro_price DESC, pro_name ASC;
+
+SELECT pro_name, pro_price
+FROM product
+ORDER BY pro_price ASC
+LIMIT 1;
+
+SELECT company_code, AVG(pro_price) AS average_price
+FROM product
+GROUP BY company_code;
+
+SELECT AVG(pro_price) AS average_total_price
+FROM product;
+
+
+
+
